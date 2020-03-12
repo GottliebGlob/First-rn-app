@@ -9,7 +9,7 @@ export const MainScreen = ({navigation}) => {
 
     return (
         <View style={styles.center}>
-            <Text> Main Screen</Text>
+            <Text> Main Screen!</Text>
             <Button title='Go to post' onPress={goCreate}/>
         </View>
     )
