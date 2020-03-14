@@ -1,5 +1,7 @@
 import React from 'react'
 import {View, StyleSheet, Text, Button} from 'react-native'
+import {HeaderButtons, Item} from "react-navigation-header-buttons"
+import {AppHeaderIcon} from "../components/AppHeaderIcon"
 
 
 export const MainScreen = ({navigation}) => {
@@ -15,9 +17,17 @@ export const MainScreen = ({navigation}) => {
     )
 }
 
-MainScreen.navigationOptions = {
-
-}
+MainScreen.navigationOptions = ({navigation}) => ({
+    headerTitle: 'NeverMore',
+    headerRight: () => <HeaderButtons HeaderButtonComponent={AppHeaderIcon} title="App" >
+    <Item title="Filter" iconName="filter"
+    onPress={() => console.log('Press')} />
+    </HeaderButtons>,
+    headerLeft: () => <HeaderButtons HeaderButtonComponent={AppHeaderIcon} title="App" >
+        <Item title="Filter" iconName="align-justify"
+              onPress={() => navigation.toggleDrawer()} />
+    </HeaderButtons>
+})
 
 
 const styles = StyleSheet.create({
