@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-export const Post = ({ post }) => {
+export const Post = ({ post, onOpen }) => {
     return (
+        <TouchableOpacity activeOpacity={0.7} onPress={() => onOpen(post)}>
         <View style={styles.post}>
                 <View style={styles.textWrap}>
                     <Text style={styles.title}>
@@ -10,6 +11,7 @@ export const Post = ({ post }) => {
                     </Text>
                 </View>
         </View>
+        </TouchableOpacity>
     )
 }
 

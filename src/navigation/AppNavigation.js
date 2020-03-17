@@ -2,6 +2,7 @@ import React from 'react'
 import { MainScreen } from '../screens/MainScreen'
 import { Settings } from '../screens/Settings'
 import { CreateScreen } from '../screens/CreateScreen'
+import {EventScreen} from "../screens/EventScreen"
 import { createAppContainer} from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import {createDrawerNavigator} from 'react-navigation-drawer'
@@ -9,7 +10,8 @@ import { FontAwesome} from "@expo/vector-icons"
 
 const HeadNavigator = createStackNavigator({
     Main: MainScreen,
-    Create: CreateScreen
+    Create: CreateScreen,
+    Event: EventScreen
 })
 
 const MainNavigator = createDrawerNavigator({

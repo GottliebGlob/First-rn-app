@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {View, StyleSheet, Text, Button, TouchableOpacity, FlatList} from 'react-native'
 import {HeaderButtons, Item} from "react-navigation-header-buttons"
 import {AppHeaderIcon} from "../components/AppHeaderIcon"
 import { FontAwesome } from '@expo/vector-icons'
-import {DATA} from "../data"
 import {PostList} from "../components/PostList"
-import {Post} from "../components/Post";
+import {useDispatch, useSelector} from "react-redux";
+import {loadEvents} from "../store/actions/eventAction";
 
 
 export const MainScreen = ({navigation}) => {
@@ -14,7 +14,7 @@ export const MainScreen = ({navigation}) => {
     }
 
     const openPostHandler = post => {
-        navigation.navigate('Create', {
+        navigation.navigate('Event', {
             postId: post.id,
             date: post.date,
             repeat: post.repeat,
@@ -22,14 +22,24 @@ export const MainScreen = ({navigation}) => {
     })
     }
 
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(loadEvents())
+    }, [dispatch])
+
+    const actPosts = useSelector(state => state.event.actEvents)
+    const multiPosts = useSelector(state => state.event.multiEvents)
+    const allPosts = actPosts.concat(multiPosts)
+
     return (
         <View style={styles.botButton}>
-            <PostList data={DATA} onOpen={openPostHandler} />
+            <PostList data={allPosts} onOpen={openPostHandler} />
            <TouchableOpacity style={styles.btnHeight} onPress={goCreate}>
                <View>
             <Text>Add event</Text>
                </View>
-                <FontAwesome name="plus" size={28} style={{marginHorizontal: 30}} />
+                <FontAwesome name="plus" size={28} style={{marginHorizontal: 30}} onPress={goCreate} />
             </TouchableOpacity>
         </View>
     )

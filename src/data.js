@@ -3,7 +3,7 @@ export const DATA = [
         id: '1',
         text: 'Awesome text for post 1',
         date: new Date().toJSON(),
-        booked: true
+        repeat: true
     },
     {
         id: '2',
