@@ -1,3 +1,10 @@
 export const LOAD_EVENTS = 'LOAD_EVENTS'
 export const REMOVE_EVENT = 'REMOVE_EVENTS'
 export const ADD_EVENT = 'ADD_EVENTS'
+export const DARK_THEME = 'DARK_THEME'
+export const LIGHT_THEME = 'LIGHT_THEME'
+export const HOURS = 'HOURS'
+export const DAYS = 'DAYS'
+export const WEEKS = 'WEEKS'
+export const MONTH = 'MONTH'
+

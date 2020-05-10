@@ -16,7 +16,7 @@ export const removeEvent = id => {
 }
 
 export const addEvent = post => {
-    post.id = Date.now().toString()
+
 
     return {
         type: ADD_EVENT,

@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "vp-bep",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "w4-x7n",
   "https": false
 }

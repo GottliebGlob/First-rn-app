@@ -5,28 +5,27 @@ import { CreateScreen } from '../screens/CreateScreen'
 import {EventScreen} from "../screens/EventScreen"
 import { createAppContainer} from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import {createDrawerNavigator} from 'react-navigation-drawer'
-import { FontAwesome} from "@expo/vector-icons"
+import {THEME} from "../theme";
+
+
+
+
+const navigatorOptions= {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: THEME.MAIN_COLOR,
+        },
+        headerTintColor: '#fff',
+    }}
 
 const HeadNavigator = createStackNavigator({
     Main: MainScreen,
     Create: CreateScreen,
-    Event: EventScreen
-})
+    Event: EventScreen,
+    Settings: Settings,
+},
+    navigatorOptions
+)
 
-const MainNavigator = createDrawerNavigator({
-    Main: {
-        screen: HeadNavigator,
-    },
-    Create: CreateScreen,
-    Settings: {
-        screen: Settings,
-        navigationOptions: {
-            tabBarIcon: info => (
-                <FontAwesome name='gears' size={25} />
-            )
-        }
-    }
-})
+export const AppNavigation = createAppContainer(HeadNavigator)
 
-export const AppNavigation = createAppContainer(MainNavigator)
