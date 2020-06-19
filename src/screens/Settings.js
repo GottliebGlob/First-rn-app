@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {enableDark, enableLight} from "../store/actions/themeAction"
 import {LightTheme, DarkTheme} from "../theme"
 import {FontAwesome} from "@expo/vector-icons";
-
+import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 
 
 export const Settings = ({navigation}) => {
@@ -45,14 +45,7 @@ export const Settings = ({navigation}) => {
     )
 }
 
-Settings.navigationOptions = ({navigation}) => {
-    return {
-        headerTitle: 'Настройки',
-        headerStyle: {
-            backgroundColor: navigation.getParam('color')
-        }
-    }
-}
+
 
 const styles = StyleSheet.create({
     center: {
