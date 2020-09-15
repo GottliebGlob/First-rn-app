@@ -33,11 +33,9 @@ export const CreateScreen = ({ navigation }) => {
     const handleRemind = (NewDate) => {
         setRemind(prev => [
             ...prev,
-                {
-                    id: Date.now().toString(),
-                    value: NewDate
-                }
+            NewDate
         ])
+
         getterFunk(remind, date)
         setDisabledTwo(false)
         setBtnsColorTwo(curTheme.color.color)
@@ -45,7 +43,7 @@ export const CreateScreen = ({ navigation }) => {
 
     const getterFunk = (remind, date) => {
         const m = moment(date)
-        return(remind.map(p => m.clone().subtract(p.value,'days').format('MMMM Do YYYY, h:mm:ss a')))
+        return(remind.map(p => m.clone().subtract(Number(p),'days').format('MMMM Do YYYY, h:mm:ss a')))
     }
 
 
@@ -113,8 +111,9 @@ export const CreateScreen = ({ navigation }) => {
             repeat: Object.values(repeatable).join(),
             remind: remind.join()
         }
-        console.log(Object.values(repeatable).join())
+        //console.log(Object.values(repeatable).join())
         dispatch(addEvent(post))
+        console.log(post)
         navigation.navigate('Main')
     }
 
